@@ -196,17 +196,24 @@ print(iceCream.scoops)
 ```python
 class IceCreamTruck:
   def __init__(self):
-    self.sold = 0
+    self.scoopsSold = 0
 
   def order(self, scoops):
     # instantiate IceCream class
     iceCream = IceCream()
-    iceCream.add(scoops)
+    self.add(iceCream, scoops)
     return iceCream
 
   def add(self, iceCream, scoops):
     iceCream.add(scoops)
+    self.scoopsSold += scoops
 
+# Test
+truck = IceCreamTruck()
+iceCream1 = truck.order(3)
+iceCream1.eat(2)
+truck.add(iceCream1, 1)
+truck.scoopsSold
 ```
 
 
