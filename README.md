@@ -3,7 +3,7 @@
 # 03 - concept-oop-paradigm.mp4
 # 04 - practice-ice-cream.mp4
 
-## Create ice cream class
+### Create ice cream class
 ![](img/2021-11-24-09-22-49.png)
 
 ```python
@@ -11,12 +11,12 @@ class IceCream:
   pass
 ```
 
-## instantiate
+### instantiate
 
 ```python
 ice = Ice()
 ```
-## Add methods to class
+### Add methods to class
 ![](img/2021-11-24-09-25-02.png)
 
 ```python
@@ -24,7 +24,7 @@ class IceCream
   def eat(self):
     print("yum")
 ```
-## add constructor
+### add constructor
 code that's run when object is instantiated
 
 ![](img/2021-11-24-09-27-25.png)
@@ -41,7 +41,7 @@ class IceCream
 iceCream = IceCream()
 ```
 
-## Add attributes
+### Add attributes
 Note, self refers to current instance instance
 ![](img/2021-11-24-09-31-27.png)
 ```python
@@ -58,7 +58,7 @@ iceCream = IceCream()
 iceCream.scoops
 ```
 
-## change eat method to take in another parameter
+### change eat method to take in another parameter
 ```python
 class IceCream:
   def __init__(self):
@@ -76,7 +76,7 @@ iceCream.eat(2)
 print(iceCream.scoops)
 ```
 
-## Add more methods and account for running out of iceCream
+### Add more methods and account for running out of iceCream
 
 ```python
 class IceCream:
@@ -106,6 +106,46 @@ print(iceCream.scoops)
 ```
 
 # 05 - bonus-practice-light-switch.mp4
+
+### Instantiate lightswitch class to off initially
+```python
+class Light:
+  def __init__(self):
+    self.on = False
+```
+
+### Create toggle method that switches from off to on and vice versa
+```python
+class Light:
+  def __init__(self):
+    self.on = False
+  def toggle(self):
+    self.on = not self.on
+```
+
+### Test it
+```python
+class Light:
+  def __init__(self):
+    self.on = False
+  def isOn(self):
+    return self.on
+  def toggle(self):
+    self.on = not self.on
+
+light = Light()
+# see if light's off initially
+light.isOn()
+# toggle it on
+light.toggle()
+# see if light's on
+light.isOn()
+# toggle it back off
+light.toggle()
+light.isOn()
+```
+
+
 # 06 - bonus-mystery-sync-ed-lights.mp4
 # 07 - concept-abstraction.mp4
 # 08 - practice-ice-cream-truck.mp4
