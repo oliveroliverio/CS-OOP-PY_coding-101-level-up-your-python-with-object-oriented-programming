@@ -146,9 +146,71 @@ light.isOn()
 ```
 
 
+
+
 # 06 - bonus-mystery-sync-ed-lights.mp4
 # 07 - concept-abstraction.mp4
+![](img/2021-11-24-10-08-27.png)
+- encapsulation hides info from users
+- users can't modify the scoop max or initial scoops
+- abstraction also removes redundancy
+- imagine two different instances of IceCream: iceCreamTruck vs iceCreamCone.  Maintaining this would be a nightmare
+
+![](img/2021-11-24-10-11-24.png)
+- but you still only want one copy of the scoop adding code
+- Tip: check for redundant code.  If you're copying/pasting, you're doing it wrong
+- Encapsulation hides/restricts information
+- Abstraction means you don't have to worry about how the eat method works
 # 08 - practice-ice-cream-truck.mp4
+Continuing from ice cream code and adding max
+
+```python
+class IceCream:
+  maxScoops = 3
+  def __init__(self):
+    self.scoops = 2
+
+  def eat(self, scoops):
+    if self.scoops < scoops:
+      print("no more ice cream left")
+    else:
+      self.scoops -= scoops
+      print("yumyum")
+
+  def add(self, scoops):
+    self.scoops += scoops
+    if self.scoops > self.maxScoops:
+      self.scoops = 0
+      print("Too many scoops, dropped ice cream.. :(")
+
+# I don't think the above works, but I'll figure that out later
+# intantiate and check
+iceCream = IceCream()
+iceCream.eat(10)
+print(iceCream.scoops)
+```
+
+### Add IceCreamTruck class
+- instantiating another class within this class
+- give the add method a paramter that takes in instantiated iceCream objects and adds scoops to it
+```python
+class IceCreamTruck:
+  def __init__(self):
+    self.sold = 0
+
+  def order(self, scoops):
+    # instantiate IceCream class
+    iceCream = IceCream()
+    iceCream.add(scoops)
+    return iceCream
+
+  def add(self, iceCream, scoops):
+    iceCream.add(scoops)
+
+```
+
+
+
 # 09 - bonus-practice-sync-ed-lights.mp4
 # 10 - concept-inheritance.mp4
 # 11 - practice-deluxe-ice-cream-truck.mp4
