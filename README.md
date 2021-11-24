@@ -216,11 +216,31 @@ truck.add(iceCream1, 1)
 truck.scoopsSold
 ```
 
-
-
 # 09 - bonus-practice-sync-ed-lights.mp4
 # 10 - concept-inheritance.mp4
 # 11 - practice-deluxe-ice-cream-truck.mp4
+- create DeluxeIceCreamTruck class
+
+```python
+def add(self, iceCream, scoops):
+  iceCream.add(scoops)
+  self.sold += scoops
+
+class DeluxeIceCreamTruck(IceCreamTruck):
+  # instead of this:
+  # iceCream = IceCream()
+  # self.add(iceCream, scoops)
+  # Do this to call the parent class method "order." Note, the IceCreamTruck order method instantiates an IceCream object automatically and returns it
+  iceCream = super().order(scoops)
+  # call the iceCream add method to add scoops
+  iceCream.add(1)
+
+# test
+truck = DeluxeIceCreamTruck()
+iceCream = truck.order(2)
+iceCream.scoops
+truck.sold
+```
 # 12 - bonus-practice-flickering-light.mp4
 # 13 - bonus-mystery-mro.mp4.
 # 14 - concept-inheritance.mp4
