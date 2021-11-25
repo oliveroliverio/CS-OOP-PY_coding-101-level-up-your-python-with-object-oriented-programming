@@ -243,7 +243,7 @@ truck.sold
 ```
 # 12 - bonus-practice-flickering-light.mp4
 # 13 - bonus-mystery-mro.mp4.
-# 14 - concept-inheritance.mp4
+
 # 15 - practice-melting-ice-cream.mp4
 # 16 - bonus-practice-timed-lights.mp4
 # 17 - bonus-mystery-fragile-base-case.mp4

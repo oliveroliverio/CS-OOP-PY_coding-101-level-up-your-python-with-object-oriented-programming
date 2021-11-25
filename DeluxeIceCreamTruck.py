@@ -38,12 +38,14 @@ class DeluxeIceCreamTruck(IceCreamTruck):
   # iceCream = IceCream()
   # self.add(iceCream, scoops)
   # Do this to call the parent class method "order." Note, the IceCreamTruck order method instantiates an IceCream object automatically and returns it
-  iceCream = super().order(scoops)
-  # call the iceCream add method to add scoops
-  iceCream.add(1)
+  def order(self, scoops):
+    iceCream = super().order(scoops)
+    # call the iceCream add method to add scoops
+    iceCream.add(1)
+    return(iceCream)
 
 # test
 truck = DeluxeIceCreamTruck()
 iceCream = truck.order(2)
 iceCream.scoops
-truck.soldass
+truck.sold
