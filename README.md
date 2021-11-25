@@ -308,7 +308,61 @@ order (MRO) for bases A, B
 - Note, melting icecream and drinkable both have add methods
 - melting icecream subclasses both drinkable and icecream, but should give precedence to icecream
 - create these classes or copy from previous exercises
+```python
+class IceCream:
+  def __init__(self):
+    self.scoops = 6
+    self.scoopMax = 7
 
+  def eat(self, scoops):
+    if self.scoops < scoops:
+      print("no more ice cream left")
+    else:
+      self.scoops -= scoops
+      print("yumyum")
+
+  def add(self, scoops):
+    if self.scoops > self.scoopMax:
+      print("too many scoops")
+    else:
+      self.scoops += scoops
+      print("yay more scoops")
+
+class IceCreamTruck:
+  def __init__(self):
+    self.scoopsSold = 0
+
+  def order(self, scoops):
+    # instantiate IceCream class
+    iceCream = IceCream()
+    self.add(iceCream, scoops)
+    return iceCream
+
+  def add(self, iceCream, scoops):
+    iceCream.add(scoops)
+    self.scoopsSold += scoops
+
+class DeluxeIceCreamTruck(IceCreamTruck):
+  def order(self, scoops):
+    iceCream = super().order(scoops)
+    iceCream.add(1)
+    return iceCream
+
+```
+- create "mixins" classes (drinkable, melting icecream and lemonade (both melting icecream and lemonade inherits from drinkable))
+
+```python
+class Drinkable:
+  # make constructor with initial cup value zero
+  def __init__(self):
+    self.cups = 0
+  # create add method that adds variable number of cups to drink
+  def add(self, cups):
+    self.cups+= cups
+  # create drink method that subtracts cups from drink
+  def drink(self, cups):
+    self.cups -= cups
+```
 
 # 16 - bonus-practice-timed-lights.mp4
 # 17 - bonus-mystery-fragile-base-case.mp4
