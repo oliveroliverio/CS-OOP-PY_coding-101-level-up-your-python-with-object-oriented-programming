@@ -8,9 +8,9 @@ class Dancer:
   def __init__(self, style):
     self.style =style
 
-class Student:
+class Student(Human):
   pass
 
 # test
-John = Student()
-print(John.age)
+John = Student("John", "23")
+print(John.name)
