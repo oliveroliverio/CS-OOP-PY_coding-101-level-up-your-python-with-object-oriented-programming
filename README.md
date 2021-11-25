@@ -242,9 +242,74 @@ iceCream.scoops
 truck.sold
 ```
 # 12 - bonus-practice-flickering-light.mp4
+
+```python
+class Light:
+  def __init__(self, sync=None):
+    # call parent constructor
+    # what was the parent class of light?
+    super().__init__()
+    self.on = False
+    self.sync = sync
+  def isOn(self):
+    return self.on
+  def toggle(self):
+    self.on = not self.on
+
+
+class OldLight(Light):
+  def __init__(self, sync=None):
+    # call parent constructor
+    super().__init__(sync=sync)
+    self.on = False
+    self.sync = sync
+    self.flicker = False
+
+  def toggle(self):
+    # call parent method with super
+    super().toggle()
+    if self.on:
+      self.flicker = not self.flicker
+
+
+# test
+light = OldLight()
+print(light.flicker)
+light.toggle()
+print(light.flicker)
+```
 # 13 - bonus-mystery-mro.mp4.
+- Method resolution order
+- multiple parent classes
+
+![](img/2021-11-25-11-08-10.png)
+- C methods override A, A methods override B.
+- replicate the error
+
+```python
+class A:
+  pass
+class B(A):
+  pass
+class C(A,B):
+  pass
+```
+- output
+
+```terminal
+TypeError: Cannot create a consistent method resolution
+order (MRO) for bases A, B
+```
+- he ends it here
+
 
 # 15 - practice-melting-ice-cream.mp4
+![](img/2021-11-25-11-13-05.png)
+- Note, melting icecream and drinkable both have add methods
+- melting icecream subclasses both drinkable and icecream, but should give precedence to icecream
+- create these classes or copy from previous exercises
+
+
 # 16 - bonus-practice-timed-lights.mp4
 # 17 - bonus-mystery-fragile-base-case.mp4
 # 18 - conclusion.mp4
